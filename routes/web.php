@@ -12,9 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('pages.landing.index');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'dashboard'], function () {
+	Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+});
