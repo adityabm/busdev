@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zxx">
-<!-- Mirrored from specthemes.com/redbiz/redbiz-3/redbiz-3/home-9.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Nov 2018 09:55:45 GMT -->
 
 @include('layouts.htmlheader')
 
@@ -17,7 +16,7 @@
                     <div class="row">
                         <div class="navbar-header navbar-header-custom">
                             <button type="button" class="navbar-toggle collapsed menu-icon" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                            <a class="navbar-logo" href="index.html"><img src="{{asset('assets/img/logos/logo.png')}}" alt="logo" id="logo"></a>
+                            <a class="navbar-logo" href="{{url('/')}}"><img src="{{asset('assets/img/logos/logo-3.png')}}" alt="logo" id="logo"></a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right navbar-links-custom">
@@ -50,12 +49,11 @@
                 </div>
             </div>
             <div class="footer-bar">
-                <p><span class="primary-color">SpecThemes</span> © {{date('Y')}}. All Rights Reserved.</p>
+                <p><span class="primary-color">KitaBisnis</span> © {{date('Y')}}. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
     @include('layouts.basescript')
 </body>
-<!-- Mirrored from specthemes.com/redbiz/redbiz-3/redbiz-3/home-9.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Nov 2018 09:56:26 GMT -->
 
 </html>

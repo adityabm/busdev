@@ -8,6 +8,7 @@
 
     <!-- Title Page-->
     <title>Dashboard</title>
+    <link rel="shortcut icon" href="{{asset('assets/img/logos/logo-shortcut.png')}}" />
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
@@ -29,6 +30,8 @@
 
     <!-- Main CSS-->
     <link href="{{asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
+
+    @yield('styles')
 
 </head>
 
@@ -73,9 +76,13 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active">
+                        <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
                             <a href="{{url('/')}}">
                                 <i class="fas fa-chart-bar"></i>Dashboard</a>
+                        </li>
+                        <li class="{{ request()->is('dashboard/project') ? 'active' : '' }}">
+                            <a href="{{url('dashboard/project')}}">
+                                <i class="fas fa-edit"></i>Project</a>
                         </li>
                     </ul>
                 </nav>
@@ -96,42 +103,31 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{asset('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                            <img src="{{asset('admin/images/icon/avatar-new.png')}}" alt="{{Auth::user()->name}}" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">{{Auth::user()->name}}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="{{asset('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                                        <img src="{{asset('admin/images/icon/avatar-new.png')}}" alt="{{Auth::user()->name}}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#">{{Auth::user()->name}}</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                                    <span class="email">{{Auth::user()->email}}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -148,13 +144,8 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © {{date('Y')}} KitaBisnis. All rights reserved.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @yield('content')
+
                     </div>
                 </div>
             </div>
@@ -187,6 +178,8 @@
 
     <!-- Main JS-->
     <script src="{{asset('admin/js/main.js')}}"></script>
+    
+    @yield('scripts')
 
 </body>
 

@@ -20,4 +20,8 @@ Auth::routes();
 
 Route::group(['prefix' => 'dashboard'], function () {
 	Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+
+	Route::group(['prefix' => 'project'], function () {
+		Route::get('/', 'Admin\ProjectController@index')->name('project');
+	});
 });
