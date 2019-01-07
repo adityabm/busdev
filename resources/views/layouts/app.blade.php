@@ -28,7 +28,11 @@
             </nav>
         </div>
     </header>
-    @yield('content')
+
+    <div id="app">
+        @yield('content')
+    </div>
+    
     <footer>
         <div class="container">
             <div class="row">

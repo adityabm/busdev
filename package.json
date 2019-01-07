@@ -20,7 +20,11 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "jquery-confirm": "^3.3.2",
+        "jquery-confirm": "^3.3.3",
+        "moment": "^2.23.0",
+        "vue-pikaday-directive": "^0.5.2",
+        "vue-resource": "^1.5.1",
+        "vue2-dropzone": "^3.5.2",
         "vue2-notify": "^1.4.0"
     }
 }

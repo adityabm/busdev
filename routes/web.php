@@ -23,5 +23,6 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 	Route::group(['prefix' => 'project'], function () {
 		Route::get('/', 'Admin\ProjectController@index')->name('project');
+		Route::get('get-data', 'Admin\ProjectController@getData')->name('project_data');
 	});
 });

@@ -1,3 +1,8 @@
+<script type="text/javascript">
+    window.base_url  = "{{url('/')}}";
+    window.base_path = "{{asset('/')}}";
+</script>
+
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/owl.carousel.js')}}"></script>
@@ -23,5 +28,6 @@
 <script src="{{asset('assets/js/revolution/revolution.extension.migration.min.js')}}"></script>
 <script src="{{asset('assets/js/revolution/revolution.extension.slideanims.min.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 
 @yield('scripts')

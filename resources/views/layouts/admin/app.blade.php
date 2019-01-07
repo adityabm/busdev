@@ -9,6 +9,7 @@
     <!-- Title Page-->
     <title>Dashboard</title>
     <link rel="shortcut icon" href="{{asset('assets/img/logos/logo-shortcut.png')}}" />
+    <meta name="csrf-token" content="{{csrf_token()}}">
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
@@ -27,7 +28,7 @@
     <link href="{{asset('admin/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
-
+    <link rel="stylesheet" href="{{asset('admin/vendor/jquery-confirm/jquery-confirm.min.css')}}">
     <!-- Main CSS-->
     <link href="{{asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
 
@@ -76,6 +77,7 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
+                        @if(Auth::user()->role == 'user')
                         <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
                             <a href="{{url('/')}}">
                                 <i class="fas fa-chart-bar"></i>Dashboard</a>
@@ -84,6 +86,7 @@
                             <a href="{{url('dashboard/project')}}">
                                 <i class="fas fa-edit"></i>Project</a>
                         </li>
+                        @endif
                     </ul>
                 </nav>
             </div>
@@ -140,20 +143,28 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
+            <div id="app">
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
 
-                        @yield('content')
+                            @yield('content')
 
+                        </div>
                     </div>
                 </div>
+
+                @yield('modals')
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
 
     </div>
+    <script type="text/javascript">
+        window.base_url  = "{{url('/')}}";
+        window.base_path = "{{asset('/')}}";
+    </script>
 
     <!-- Jquery JS-->
     <script src="{{asset('admin/vendor/jquery-3.2.1.min.js')}}"></script>
@@ -175,9 +186,11 @@
     <script src="{{asset('admin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
     <script src="{{asset('admin/vendor/select2/select2.min.js')}}">
     </script>
+    <script src="{{asset('admin/vendor/jquery-confirm/jquery-confirm.min.js')}}"></script>
 
     <!-- Main JS-->
     <script src="{{asset('admin/js/main.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
     
     @yield('scripts')
 
