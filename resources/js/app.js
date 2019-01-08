@@ -28,6 +28,8 @@ Vue.component('sorter', require('./components/Sorter.vue'));
 Vue.component('vue-dropzone',vue2Dropzone);
 Vue.use(VueResource);
 
+require('./components/filter.js');
+
 window.eventHub = new Vue();
 window.app = new Vue({
     el: '#app',

@@ -78,7 +78,7 @@
                                 <label for="text-input" class=" form-control-label">Project Image</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <vue-dropzone id="image" :options="dropzoneOptions"></vue-dropzone>
+                                <vue-dropzone id="image" ref="imageUploader" :options="dropzoneOptions" v-on:vdropzone-success="successImage"></vue-dropzone>
                             </div>
                         </div>
 
@@ -87,7 +87,7 @@
                                 <label for="text-input" class=" form-control-label">Project Documents</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <vue-dropzone id="doc" :options="dropzoneOptions2"></vue-dropzone>
+                                <vue-dropzone id="doc" ref="docUploader" :options="dropzoneOptions2" v-on:vdropzone-success="successDocs"></vue-dropzone>
                             </div>
                         </div>
                     </div>
@@ -109,23 +109,35 @@
         data() {
             return {
                 item: {
+                    id: null,
                     project_name: '',
                     description: '',
                     target:0,
                     timeline_start:'',
                     timeline_end:'',
                     percentage:0,
-                    tags:''
+                    tags:'',
+                    image:[],
+                    docs:[]
                 },
                 base_url: base_url,
                 dropzoneOptions: {
-                    url: 'https://httpbin.org/post',
+                    url: base_url + '/dashboard/project/upload-image',
+                    headers: {
+                        "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
+                    },
                     maxFilesize: 2,
                     thumbnailWidth: 200,
                     addRemoveLinks: true,
+                    customOptionsObject:{
+                        capture : 'image/'
+                    }
                   },
                 dropzoneOptions2: {
-                    url: 'https://httpbin.org/post',
+                    url: base_url + '/dashboard/project/upload-file',
+                    headers: {
+                        "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
+                    },
                     maxFilesize: 2,
                     thumbnailWidth: 200,
                     addRemoveLinks: true,
@@ -141,8 +153,16 @@
                     if(item != null){
                         this.item = item;
                     }
+                    this.$refs.imageUploader.removeAllFiles( true );
+                    this.$refs.docUploader.removeAllFiles( true );
                     $('#modal-form-project').modal("show");
                 }
+            },
+            successImage(file,response){
+                this.item.image.push(response.name);
+            },
+            successDocs(file,response){
+                this.item.docs.push(response.name);
             },
             save(){
                 if(this.item.project_name == ''){
@@ -175,8 +195,18 @@
                     return;
                 }
 
+                if(this.item.percentage > 100){
+                    $.alert('Profit Share Percentage must be lower than 100');
+                    return;
+                }
+
                 if(this.item.tags == ''){
                     $.alert('Project must have atleast one tags');
+                    return;
+                }
+
+                if(this.item.image.length == 0){
+                    $.alert('The Project must have atleast one image');
                     return;
                 }
 
@@ -189,7 +219,9 @@
                     timeline_start:this.item.timeline_start,
                     timeline_end:this.item.timeline_end,
                     percentage:this.item.percentage,
-                    tags:this.item.tags
+                    tags:this.item.tags,
+                    image:this.item.image,
+                    docs:this.item.docs
                 }).then((response) => {
                   var data = response.data;
                   if (data.success) {
@@ -218,7 +250,7 @@
                       }
                   });
                 })
-            }
+            },
         },
         mounted() {
             this.$nextTick(function () {

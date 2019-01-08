@@ -20,4 +20,19 @@ class Project extends Model
             ]
         ];
     }
+
+    public function user()
+    {
+    	return $this->hasOne('App\User','id','user_id');
+    }
+
+    public function docs()
+    {
+    	return $this->hasMany('App\Models\ProjectDetail','project_id','id');
+    }
+
+    public function images()
+    {
+    	return $this->hasMany('App\Models\ProjectImage','project_id','id');
+    }
 }

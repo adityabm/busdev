@@ -6,7 +6,9 @@
         <div class="card">
             <div class="card-header">Project Management</div>
             <div class="card-body">
+                @if(Auth::user()->role != 'admin')
                 <button type="button" class="btn btn-primary pull-right" onclick="window.eventHub.$emit('open-modal', 'form-project',null);">Post New Project</button>
+                @endif
                 <ajax-table
                     :url="'{{url('dashboard/project/get-data') }}'"
                     :oid="'data-project'"
@@ -32,12 +34,23 @@
                     }"
                     :rowparams="{}"
                     :rowtemplate="'tr-data-project'"
+                    @if(Auth::user()->role != 'admin')
                     :columns="{
                         project_name: 'Project Name',
                         status: 'Project Status',
                         target: 'Project Target',
                         timeline_start: 'Project Timeline'
-                    }" >
+                    }" 
+                    @else
+                    :columns="{
+                        project_name: 'Project Name',
+                        status: 'Project Status',
+                        target: 'Project Target',
+                        user_id:'Applicant',
+                        timeline_start: 'Project Timeline'
+                    }" 
+                    @endif
+                    >
                 </ajax-table>
             </div>
         </div>
