@@ -20,6 +20,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "cleave.js": "^1.4.7",
         "jquery-confirm": "^3.3.3",
         "moment": "^2.23.0",
         "vue-pikaday-directive": "^0.5.2",

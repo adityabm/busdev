@@ -58,7 +58,7 @@
 <div class="section-block">
     <div class="container">
         <div class="section-heading">
-            <h5>Featured Products</h5>
+            <h5>Projek Terkini</h5>
             <div class="section-heading-line-left"></div>
         </div>
         <div class="row mt-30">
@@ -67,12 +67,12 @@
                 <div class="shop-grid">
                     <div class="shop-grid-info" style="padding-bottom:10px">
                         <div class="row" style="padding-bottom:10px">
-                            <div class="col-md-9 col-sm-9 col-xs-9 pr-0">
-                                <h4><a href="#">{{$p->project_name}}</a></h4>
+                            <div class="col-md-7 col-sm-7 col-xs-7 pr-0">
+                                <h4><a href="{{url('project',$p->slug)}}">{{$p->project_name}}</a></h4>
                                 <span>{{$p->description}}</span>
                             </div>
-                            <div class="col-md-3 col-sm-3 col-xs-3 pl-0">
-                                <h5>$175</h5> </div>
+                            <div class="col-md-5 col-sm-5 col-xs-5 pl-0">
+                                <h5 style="font-size: 1em">{{rupiah($p->target)}}</h5> </div>
                         </div>
                         <div class="progress" style="border-radius:3rem;margin-bottom:0">
                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{round(($p->invest / $p->target) * 100,1)}}"

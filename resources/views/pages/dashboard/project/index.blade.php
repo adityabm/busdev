@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">Project Management</div>
+            <div class="card-header">Manajemen Projek</div>
             <div class="card-body">
                 @if(Auth::user()->role != 'admin')
-                <button type="button" class="btn btn-primary pull-right" onclick="window.eventHub.$emit('open-modal', 'form-project',null);">Post New Project</button>
+                <button type="button" class="btn btn-primary pull-right" onclick="window.eventHub.$emit('open-modal', 'form-project',null);">Ajukan Projek Baru</button>
                 @endif
                 <ajax-table
                     :url="'{{url('dashboard/project/get-data') }}'"
@@ -36,18 +36,18 @@
                     :rowtemplate="'tr-data-project'"
                     @if(Auth::user()->role != 'admin')
                     :columns="{
-                        project_name: 'Project Name',
-                        status: 'Project Status',
-                        target: 'Project Target',
-                        timeline_start: 'Project Timeline'
+                        project_name: 'Nama Projek',
+                        status: 'Status Projek',
+                        target: 'Target Projek',
+                        timeline_start: 'Waktu Projek'
                     }" 
                     @else
                     :columns="{
-                        project_name: 'Project Name',
-                        status: 'Project Status',
-                        target: 'Project Target',
-                        user_id:'Applicant',
-                        timeline_start: 'Project Timeline'
+                        project_name: 'Nama Projek',
+                        status: 'Status Projek',
+                        target: 'Target Projek',
+                        user_id:'Pembuat Projek',
+                        timeline_start: 'Waktu Projek'
                     }" 
                     @endif
                     >

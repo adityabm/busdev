@@ -20572,7 +20572,7 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(140);
-module.exports = __webpack_require__(194);
+module.exports = __webpack_require__(195);
 
 
 /***/ }),
@@ -20615,7 +20615,7 @@ Vue.component('sorter', __webpack_require__(191));
 Vue.component('vue-dropzone', __WEBPACK_IMPORTED_MODULE_0_vue2_dropzone___default.a);
 Vue.use(VueResource);
 
-__webpack_require__(196);
+__webpack_require__(194);
 
 window.eventHub = new Vue();
 window.app = new Vue({
@@ -69901,13 +69901,6 @@ if (false) {
 /* 194 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 195 */,
-/* 196 */
-/***/ (function(module, exports) {
-
 Vue.filter('uppercase', function (value) {
   return value.toUpperCase();
 });
@@ -69936,6 +69929,12 @@ Vue.filter('formatCurrency', function (value, c, d, t) {
       j = (j = i.length) > 3 ? j % 3 : 0;
   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 });
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

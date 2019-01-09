@@ -32,8 +32,8 @@ export default {
       var that = this;
 
       $.confirm({
-          title: 'Are You Sure?',
-          content: 'Want To Approve This Project',
+          title: 'Apakah Anda Yakin?',
+          content: 'Projek yang sudah diterima akan muncul pada halaman depan',
           typeAnimated: true,
           buttons: {
               no: function () {
@@ -59,8 +59,8 @@ export default {
                   }
                 },(response) => {
                   $.confirm({
-                      title: 'Error!',
-                      content: 'Something Trouble With Server. Please Contact Admin.',
+                      title: 'Gagal!',
+                      content: 'Ada yang salah pada server. Mohon Hubungi Admin',
                       type: 'red',
                       typeAnimated: true,
                       buttons: {
@@ -77,8 +77,8 @@ export default {
       var that = this;
 
       $.confirm({
-          title: 'Are You Sure?',
-          content: 'Want To Reject This Project',
+          title: 'Apakah Anda Yakin?',
+          content: 'Projek yang sudah ditolak tidak bisa diubah lagi statusnya setelah ini.',
           typeAnimated: true,
           buttons: {
               no: function () {
@@ -115,8 +115,8 @@ export default {
                   }
                 },(response) => {
                   $.confirm({
-                      title: 'Error!',
-                      content: 'Something Trouble With Server. Please Contact Admin.',
+                      title: 'Gagal!',
+                      content: 'Ada yang salah pada server. Mohon Hubungi Admin',
                       type: 'red',
                       typeAnimated: true,
                       buttons: {

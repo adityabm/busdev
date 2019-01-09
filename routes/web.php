@@ -17,6 +17,8 @@ Route::get('/', 'HomeController@index')->name('landing');
 
 Auth::routes();
 
+Route::get('project/{slug}', 'HomeController@detailProject')->name('project_detail');
+
 Route::group(['prefix' => 'dashboard'], function () {
 	Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
 

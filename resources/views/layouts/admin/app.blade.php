@@ -57,9 +57,13 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="active">
+                        <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
                             <a href="{{url('/')}}">
-                                <i class="fas fa-chart-bar"></i>Dashboard</a>
+                                <i class="fas fa-chart-bar"></i>Dasbor</a>
+                        </li>
+                        <li class="{{ request()->is('dashboard/project') ? 'active' : '' }}">
+                            <a href="{{url('dashboard/project')}}">
+                                <i class="fas fa-edit"></i>Projek</a>
                         </li>
                     </ul>
                 </div>
@@ -79,11 +83,11 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
                             <a href="{{url('/')}}">
-                                <i class="fas fa-chart-bar"></i>Dashboard</a>
+                                <i class="fas fa-chart-bar"></i>Dasbor</a>
                         </li>
                         <li class="{{ request()->is('dashboard/project') ? 'active' : '' }}">
                             <a href="{{url('dashboard/project')}}">
-                                <i class="fas fa-edit"></i>Project</a>
+                                <i class="fas fa-edit"></i>Projek</a>
                         </li>
                     </ul>
                 </nav>

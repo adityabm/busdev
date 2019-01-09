@@ -29,4 +29,15 @@ class HomeController extends Controller
 
         return view('pages.landing.index',compact('project'));
     }
+
+    public function detailProject($slug)
+    {
+        $project = Project::with(['user','docs','images'])->where('slug',$slug)->first();
+
+        if(!$project){
+            return redirect()->back();
+        }
+
+        return view('pages.landing.project',compact('project'));
+    }
 }
