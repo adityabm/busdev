@@ -1,7 +1,7 @@
 <head>
     <title>Business Development</title>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="{{asset('assets/img/logos/logo-shortcut.png')}}" />
+    <link rel="shortcut icon" href="{{asset('assets/img/logos/favicon.png')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.css')}}">
