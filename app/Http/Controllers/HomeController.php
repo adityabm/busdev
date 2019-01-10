@@ -30,6 +30,13 @@ class HomeController extends Controller
         return view('pages.landing.index',compact('project'));
     }
 
+    public function indexProject()
+    {
+        $project = Project::with(['user','docs','images'])->where('status','approved')->paginate(10);
+        
+        return view('pages.landing.list-project',compact('project'));
+    }
+
     public function detailProject($slug)
     {
         $project = Project::with(['user','docs','images'])->where('slug',$slug)->first();

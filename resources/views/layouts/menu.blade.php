@@ -2,7 +2,7 @@
     <a href="{{url('/')}}">Beranda</a>
 </li>
 <li> 
-    <a href="{{url('/')}}">Daftar Bisnis</a>
+    <a href="{{url('projects')}}">Daftar Projek</a>
 </li>
 @if(!Auth::check())
 <li> 

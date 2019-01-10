@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index')->name('landing');
 
 Auth::routes();
 
+Route::get('projects', 'HomeController@indexProject')->name('project_list');
 Route::get('project/{slug}', 'HomeController@detailProject')->name('project_detail');
 Route::get('project/order/{slug}/{pay}', 'OrderController@index')->name('project_order');
 Route::post('project/order/proses', 'OrderController@proses')->name('project_order_proses');
