@@ -119,13 +119,13 @@
 
                            <input type="text" id="investment" name="" class="form-control" placeholder="Contoh : 1.000.000" style="margin-top: 20px;text-align: center;border-radius: .8em;color:black">
                            <h6 style="text-align: center;padding-top:20px">Setelah Projek ini selesai Anda akan mendapatkan sekitar.</h6>
-                           <input type="text" id="hasil" name="" class="form-control" value="0" readonly="" style="margin-top: 10px;text-align: center;border-radius: .8em;background: white;color:black">
+                           <input type="text" id="hasil" name="" class="form-control" value="Rp 0" readonly="" style="margin-top: 10px;text-align: center;border-radius: .8em;background: white;color:black">
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-            <button class="btn btn-success" style="margin-top: 20px; width: 100%;border-radius: .8em;padding-top: 10px;padding-bottom: 10px;color:white">Investasikan Sekarang!</button>
+            <button id="invest" class="btn btn-success" style="margin-top: 20px; width: 100%;border-radius: .8em;padding-top: 10px;padding-bottom: 10px;color:white">Investasikan Sekarang!</button>
          </div>
       </div>
    </div>
@@ -139,12 +139,18 @@
 		var cleaveNumeral = new Cleave('#investment', {
 		    numeral: true,
 		    numeralThousandsGroupStyle: 'thousand',
-		    prefix: 'Rp '
 		});
 	});
 
 	$('#investment').on('keyup',function(){
 		var val = parseFloat($(this).val().replace('Rp ','').replace(/,/g,''));
+
+		var max = parseFloat("{{$project->target}}");
+
+		if(val > max){
+			$(this).val(formatUang(max));
+			val = max;
+		}
 
 		var persen = parseFloat("{{$project->percentage}}");
 
@@ -154,5 +160,16 @@
 
 		$('#hasil').val(formatRupiah(akhir.toFixed(2)));
 	});
+
+	$('#invest').click(function(){
+		var val = parseFloat($('#investment').val().replace('Rp ','').replace(/,/g,''));
+
+		if($('#investment').val() == 0 || $('#investment').val() == '' || $('#investment').val() == 'NaN'){
+			$.alert('Yang bener aja nge invest 0');
+			return;
+		}
+
+		window.location.href = "{{url('project/order',$project->slug)}}/"+val;
+ 	});
 </script>
 @endsection

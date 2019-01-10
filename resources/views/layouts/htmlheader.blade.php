@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles-3.css')}}" id="colors">
+    <link rel="stylesheet" href="{{asset('admin/vendor/jquery-confirm/jquery-confirm.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <meta name="csrf-token" content="{{csrf_token()}}">
 

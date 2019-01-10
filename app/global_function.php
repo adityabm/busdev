@@ -18,7 +18,7 @@ function getFullDate($time = 0)
 
 function listBulan()
 {
-    return ["" => "-", 1 => 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return ["" => "-", 1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 }
 
 function getFullDateDayTime($time = 0)
@@ -32,7 +32,18 @@ function getFullDateDayTime($time = 0)
     return listHari()[date("N", $time)] . ", " . date("j", $time) . " " . listBulan()[date("n", $time)] . " " . date("Y", $time) . " " . date("H:i:s", $time);
 }
 
+function getFullDateDay($time = 0)
+{
+    if ($time == "") return $time;
+    if ($time && $time != "0000-00-00") {
+        $time = strtotime($time);
+    } else {
+        return "-";
+    }
+    return listHari()[date("N", $time)] . ", " . date("j", $time) . " " . listBulan()[date("n", $time)] . " " . date("Y", $time);
+}
+
 function listHari()
 {
-    return ["" => "-", 1 => 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    return ["" => "-", 1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
 }
