@@ -19,6 +19,7 @@ var VueResource = require('vue-resource');
 
 //for table
 Vue.component('tr-data-project', require('./table/DataProject.vue'));
+Vue.component('tr-data-transaction', require('./table/DataTransaksi.vue'));
 
 //for modal
 Vue.component('modal-form-project', require('./modal/FormProject.vue'));

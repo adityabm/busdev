@@ -31,6 +31,7 @@
                     </div>
                 </div>
             </div>
+            @if(Auth::user()->role == 'admin')
             <div class="col-md-6 col-lg-3">
                 <div class="statistic__item statistic__item--red">
                     <h2 class="number">{{$data['invest']}}</h2>
@@ -40,6 +41,17 @@
                     </div>
                 </div>
             </div>
+            @else
+            <div class="col-md-6 col-lg-3">
+                <div class="statistic__item statistic__item--red">
+                    <h2 class="number">{{rupiah(Auth::user()->balance)}}</h2>
+                    <span class="desc">Saldo Anda</span>
+                    <div class="icon">
+                        <i class="zmdi zmdi-money"></i>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </section>

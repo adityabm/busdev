@@ -15,7 +15,7 @@
                     <div class="row" style="padding-bottom:10px">
                         <div class="col-md-7 col-sm-7 col-xs-7 pr-0">
                             <h4><a href="{{url('project',$p->slug)}}">{{$p->project_name}}</a></h4>
-                            <span>{{$p->description}}</span>
+                            <span style="color:#5f5f5f">{{$p->description}}</span>
                         </div>
                         <div class="col-md-5 col-sm-5 col-xs-5 pl-0">
                             <h5 style="font-size: 1em">{{rupiah($p->target)}}</h5> </div>

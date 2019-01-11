@@ -8,7 +8,7 @@
 
     <!-- Title Page-->
     <title>Dashboard</title>
-    <link rel="shortcut icon" href="{{asset('assets/img/logos/logo-shortcut.png')}}" />
+    <link rel="shortcut icon" href="{{asset('assets/img/logos/favicon.png')}}" />
     <meta name="csrf-token" content="{{csrf_token()}}">
 
     <!-- Fontfaces CSS-->
@@ -58,13 +58,19 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                            <a href="{{url('/')}}">
+                            <a href="{{url('dashboard')}}">
                                 <i class="fas fa-chart-bar"></i>Dasbor</a>
                         </li>
                         <li class="{{ request()->is('dashboard/project') ? 'active' : '' }}">
                             <a href="{{url('dashboard/project')}}">
                                 <i class="fas fa-edit"></i>Projek</a>
                         </li>
+                        @if(Auth::user()->role == 'user')
+                            <li class="{{ request()->is('dashboard/transaction') ? 'active' : '' }}">
+                                <a href="{{url('dashboard/transaction')}}">
+                                    <i class="fas fa-table"></i>Riwayat Transaksi</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </nav>
@@ -82,13 +88,19 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                            <a href="{{url('/')}}">
+                            <a href="{{url('dashboard')}}">
                                 <i class="fas fa-chart-bar"></i>Dasbor</a>
                         </li>
                         <li class="{{ request()->is('dashboard/project') ? 'active' : '' }}">
                             <a href="{{url('dashboard/project')}}">
                                 <i class="fas fa-edit"></i>Projek</a>
                         </li>
+                        @if(Auth::user()->role == 'user')
+                            <li class="{{ request()->is('dashboard/transaction') ? 'active' : '' }}">
+                                <a href="{{url('dashboard/transaction')}}">
+                                    <i class="fas fa-table"></i>Riwayat Transaksi</a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </div>

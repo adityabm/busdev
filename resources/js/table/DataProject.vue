@@ -8,8 +8,8 @@
     <td>{{item.timeline_start | fullDate}} - {{item.timeline_end | fullDate}}</td>
     <td>
       <template v-if="item.role != 'admin'">
-        <a href="#"><span class="fa fa-search"></span></a>
-        <a href="#"><span class="fa fa-edit"></span></a>
+        <a v-bind:href="base_url + '/project/' + item.slug" target="_blank"><span class="fa fa-search"></span></a>
+        <a href="#" @click="edit(item)"><span class="fa fa-edit"></span></a>
         <a href="#"><span class="fa fa-trash"></span></a>
       </template>
       <template v-else>
@@ -128,6 +128,9 @@ export default {
               }
           }
       });
+    },
+    edit(item){
+      window.eventHub.$emit('open-modal', 'form-project',item);
     }
   }
 }

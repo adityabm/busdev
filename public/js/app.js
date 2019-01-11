@@ -1902,7 +1902,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(180)("./" + name);
+                __webpack_require__(183)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -20572,7 +20572,7 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(140);
-module.exports = __webpack_require__(195);
+module.exports = __webpack_require__(198);
 
 
 /***/ }),
@@ -20606,16 +20606,17 @@ var VueResource = __webpack_require__(171);
 
 //for table
 Vue.component('tr-data-project', __webpack_require__(173));
+Vue.component('tr-data-transaction', __webpack_require__(176));
 
 //for modal
-Vue.component('modal-form-project', __webpack_require__(176));
+Vue.component('modal-form-project', __webpack_require__(179));
 
-Vue.component('ajax-table', __webpack_require__(184));
-Vue.component('sorter', __webpack_require__(191));
+Vue.component('ajax-table', __webpack_require__(187));
+Vue.component('sorter', __webpack_require__(194));
 Vue.component('vue-dropzone', __WEBPACK_IMPORTED_MODULE_0_vue2_dropzone___default.a);
 Vue.use(VueResource);
 
-__webpack_require__(194);
+__webpack_require__(197);
 
 window.eventHub = new Vue();
 window.app = new Vue({
@@ -66051,8 +66052,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var that = this;
 
             $.confirm({
-                title: 'Are You Sure?',
-                content: 'Want To Approve This Project',
+                title: 'Apakah Anda Yakin?',
+                content: 'Projek yang sudah diterima akan muncul pada halaman depan',
                 typeAnimated: true,
                 buttons: {
                     no: function no() {},
@@ -66076,8 +66077,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             }
                         }, function (response) {
                             $.confirm({
-                                title: 'Error!',
-                                content: 'Something Trouble With Server. Please Contact Admin.',
+                                title: 'Gagal!',
+                                content: 'Ada yang salah pada server. Mohon Hubungi Admin',
                                 type: 'red',
                                 typeAnimated: true,
                                 buttons: {
@@ -66093,8 +66094,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var that = this;
 
             $.confirm({
-                title: 'Are You Sure?',
-                content: 'Want To Reject This Project',
+                title: 'Apakah Anda Yakin?',
+                content: 'Projek yang sudah ditolak tidak bisa diubah lagi statusnya setelah ini.',
                 typeAnimated: true,
                 buttons: {
                     no: function no() {},
@@ -66128,8 +66129,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             }
                         }, function (response) {
                             $.confirm({
-                                title: 'Error!',
-                                content: 'Something Trouble With Server. Please Contact Admin.',
+                                title: 'Gagal!',
+                                content: 'Ada yang salah pada server. Mohon Hubungi Admin',
                                 type: 'red',
                                 typeAnimated: true,
                                 buttons: {
@@ -66140,6 +66141,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }
                 }
             });
+        },
+        edit: function edit(item) {
+            window.eventHub.$emit('open-modal', 'form-project', item);
         }
     }
 });
@@ -66183,7 +66187,33 @@ var render = function() {
       "td",
       [
         _vm.item.role != "admin"
-          ? [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+          ? [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: _vm.base_url + "/project/" + _vm.item.slug,
+                    target: "_blank"
+                  }
+                },
+                [_c("span", { staticClass: "fa fa-search" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.edit(_vm.item)
+                    }
+                  }
+                },
+                [_c("span", { staticClass: "fa fa-edit" })]
+              ),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
           : [
               _vm.item.status == "submitted"
                 ? _c(
@@ -66226,22 +66256,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "#" } }, [
-      _c("span", { staticClass: "fa fa-search" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _c("span", { staticClass: "fa fa-edit" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
       _c("span", { staticClass: "fa fa-trash" })
     ])
   }
@@ -66264,7 +66278,117 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(177)
 /* template */
-var __vue_template__ = __webpack_require__(183)
+var __vue_template__ = __webpack_require__(178)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/table/DataTransaksi.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7a89cdef", Component.options)
+  } else {
+    hotAPI.reload("data-v-7a89cdef", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 177 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['item', 'pagination', 'rowparams', 'index'],
+  data: function data() {
+    return {
+      base_url: base_url
+    };
+  },
+
+  methods: {}
+});
+
+/***/ }),
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("tr", [
+    _c("td", {
+      domProps: {
+        textContent: _vm._s(
+          (_vm.pagination.page - 1) * _vm.pagination.perpage + 1 + _vm.index
+        )
+      }
+    }),
+    _vm._v(" "),
+    _c("td", [_vm._v(_vm._s(_vm._f("fullDate")(_vm.item.created_at)))]),
+    _vm._v(" "),
+    _c("td", [_vm._v(_vm._s(_vm.item.project.project_name))]),
+    _vm._v(" "),
+    _c("td", [_vm._v(_vm._s(_vm._f("formatCurrency")(_vm.item.invest)))]),
+    _vm._v(" "),
+    _c("td", [_vm._v(_vm._s(_vm.item.status))])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7a89cdef", module.exports)
+  }
+}
+
+/***/ }),
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(180)
+/* template */
+var __vue_template__ = __webpack_require__(186)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -66303,12 +66427,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 177 */
+/* 180 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_pikaday_directive__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_pikaday_directive__ = __webpack_require__(181);
 //
 //
 //
@@ -66478,47 +66602,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         save: function save() {
             if (this.item.project_name == '') {
-                $.alert('Project Name Is Required');
+                $.alert('Nama Projek harus diisi');
                 return;
             }
 
             if (this.item.target == 0) {
-                $.alert('Target Funds must be greater than 0');
+                $.alert('Target Dana harus lebih dari 0 rupiah');
                 return;
             }
 
             if (this.item.timeline_start == '') {
-                $.alert('Project Start Is Required');
+                $.alert('Projek Mulai harus diisi');
                 return;
             }
 
             if (this.item.timeline_end == '') {
-                $.alert('Project End Is Required');
+                $.alert('Projek Selesai harus diisi');
                 return;
             }
 
             if (this.item.timeline_start > this.item.timeline_end) {
-                $.alert('Project Start and Project End Format Is Invalid');
+                $.alert('Format Tanggal yang dimasukkan salah');
                 return;
             }
 
             if (this.item.percentage == 0) {
-                $.alert('Profit Share Percentage must be greater than 0');
+                $.alert('Persentase Bagi Hasil harus lebih dari 0');
                 return;
             }
 
             if (this.item.percentage > 100) {
-                $.alert('Profit Share Percentage must be lower than 100');
-                return;
-            }
-
-            if (this.item.tags == '') {
-                $.alert('Project must have atleast one tags');
+                $.alert('Persentase Bagi Hasil harus kurang dari 100');
                 return;
             }
 
             if (this.item.image.length == 0) {
-                $.alert('The Project must have atleast one image');
+                $.alert('Projek harus memiliki minimal 1 (satu) foto');
                 return;
             }
 
@@ -66538,8 +66657,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = response.data;
                 if (data.success) {
                     $.confirm({
-                        title: 'Success',
-                        content: 'Updating Data',
+                        title: 'Berhasil',
+                        content: 'Mengupdate Data...',
                         type: 'green',
                         typeAnimated: true,
                         buttons: {
@@ -66551,8 +66670,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }, function (response) {
                 $.confirm({
-                    title: 'Error!',
-                    content: 'Something Trouble With Server. Please Contact Admin.',
+                    title: 'Gagal!',
+                    content: 'Ada yang salah pada server. Mohon Hubungi Admin',
                     type: 'red',
                     typeAnimated: true,
                     buttons: {
@@ -66570,13 +66689,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 178 */
+/* 181 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pikaday__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pikaday__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pikaday___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pikaday__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pikaday_css_pikaday_css__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pikaday_css_pikaday_css__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pikaday_css_pikaday_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_pikaday_css_pikaday_css__);
 
 
@@ -66602,7 +66721,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 179 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -67865,7 +67984,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 180 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -68132,16 +68251,16 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 180;
+webpackContext.id = 183;
 
 /***/ }),
-/* 181 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(182);
+var content = __webpack_require__(185);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -68166,7 +68285,7 @@ if(false) {
 }
 
 /***/ }),
-/* 182 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(false);
@@ -68180,7 +68299,7 @@ exports.push([module.i, "@charset \"UTF-8\";\n\n/*!\n * Pikaday\n * Copyright ©
 
 
 /***/ }),
-/* 183 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -68469,7 +68588,7 @@ var render = function() {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-dismiss": "modal" }
                 },
-                [_vm._v("Cancel")]
+                [_vm._v("Keluar")]
               ),
               _vm._v(" "),
               _c(
@@ -68483,7 +68602,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Confirm")]
+                [_vm._v("Simpan")]
               )
             ])
           ])
@@ -68498,7 +68617,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c("h4", { staticClass: "modal-title" }, [_vm._v("Form Project")]),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Form Projek")]),
       _vm._v(" "),
       _c(
         "button",
@@ -68522,7 +68641,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Project Name")]
+        [_vm._v("Nama Projek*")]
       )
     ])
   },
@@ -68534,7 +68653,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Description")]
+        [_vm._v("Deskripsi*")]
       )
     ])
   },
@@ -68546,7 +68665,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Target Funds")]
+        [_vm._v("Target Dana*")]
       )
     ])
   },
@@ -68558,7 +68677,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Project Start")]
+        [_vm._v("Projek Mulai*")]
       )
     ])
   },
@@ -68570,7 +68689,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Project End")]
+        [_vm._v("Projek Selesai*")]
       )
     ])
   },
@@ -68582,7 +68701,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Profit Sharing Percentage")]
+        [_vm._v("Persentase Bagi Hasil*")]
       )
     ])
   },
@@ -68606,7 +68725,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Project Image")]
+        [_vm._v("Foto Projek*")]
       )
     ])
   },
@@ -68618,7 +68737,7 @@ var staticRenderFns = [
       _c(
         "label",
         { staticClass: " form-control-label", attrs: { for: "text-input" } },
-        [_vm._v("Project Documents")]
+        [_vm._v("Dokumen Pendukung")]
       )
     ])
   }
@@ -68633,19 +68752,19 @@ if (false) {
 }
 
 /***/ }),
-/* 184 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(185)
+  __webpack_require__(188)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(189)
+var __vue_script__ = __webpack_require__(192)
 /* template */
-var __vue_template__ = __webpack_require__(190)
+var __vue_template__ = __webpack_require__(193)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -68684,17 +68803,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 185 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(186);
+var content = __webpack_require__(189);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(187)("305d0ad8", content, false, {});
+var update = __webpack_require__(190)("305d0ad8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -68710,7 +68829,7 @@ if(false) {
 }
 
 /***/ }),
-/* 186 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(false);
@@ -68724,7 +68843,7 @@ exports.push([module.i, "\n.ewPointer {\n    cursor: pointer;\n}\n.table-nolrpad
 
 
 /***/ }),
-/* 187 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -68743,7 +68862,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(188)
+var listToStyles = __webpack_require__(191)
 
 /*
 type StyleObject = {
@@ -68952,7 +69071,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 188 */
+/* 191 */
 /***/ (function(module, exports) {
 
 /**
@@ -68985,7 +69104,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 189 */
+/* 192 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69291,7 +69410,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 190 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -69785,15 +69904,15 @@ if (false) {
 }
 
 /***/ }),
-/* 191 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(192)
+var __vue_script__ = __webpack_require__(195)
 /* template */
-var __vue_template__ = __webpack_require__(193)
+var __vue_template__ = __webpack_require__(196)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -69832,7 +69951,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 192 */
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69850,7 +69969,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 193 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -69898,7 +70017,7 @@ if (false) {
 }
 
 /***/ }),
-/* 194 */
+/* 197 */
 /***/ (function(module, exports) {
 
 Vue.filter('uppercase', function (value) {
@@ -69931,7 +70050,7 @@ Vue.filter('formatCurrency', function (value, c, d, t) {
 });
 
 /***/ }),
-/* 195 */
+/* 198 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

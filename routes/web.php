@@ -24,6 +24,8 @@ Route::post('project/order/proses', 'OrderController@proses')->name('project_ord
 
 Route::group(['prefix' => 'dashboard'], function () {
 	Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+	Route::get('transaction', 'Admin\DashboardController@transaction')->name('history');
+	Route::get('transaction/get-data', 'Admin\DashboardController@getDataTransaction')->name('history_data');
 
 	Route::group(['prefix' => 'project'], function () {
 		Route::get('/', 'Admin\ProjectController@index')->name('project');
