@@ -1,5 +1,5 @@
 <head>
-    <title>Business Development</title>
+    <title>KitaBisnis</title>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="{{asset('assets/img/logos/favicon.png')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,4 +19,73 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
 
     @yield('styles')
+
+    <style type="text/css">
+        input {
+            outline: none;
+        }
+        input[type=search] {
+            -webkit-appearance: textfield;
+            -webkit-box-sizing: content-box;
+            font-family: inherit;
+            font-size: 100%;
+        }
+        input::-webkit-search-decoration,
+        input::-webkit-search-cancel-button {
+            display: none; 
+        }
+
+
+        input[type=search] {
+            background: #fff url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+            border: none;
+            padding: 9px 10px 9px 32px;
+            width: 55px;
+            margin-top: 5px;
+            -webkit-border-radius: 10em;
+            -moz-border-radius: 10em;
+            border-radius: 10em;
+            
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            transition: all .5s;
+        }
+        input[type=search]:focus {
+            width: 130px;
+            background-color: #fff;
+            border-color: #dededede;
+        }
+
+
+        input:-moz-placeholder {
+            color: #999;
+        }
+        input::-webkit-input-placeholder {
+            color: #999;
+        }
+
+        /* Demo 2 */
+        #demo-2 input[type=search] {
+            width: 15px;
+            padding-left: 10px;
+            color: transparent;
+            cursor: pointer;
+        }
+        #demo-2 input[type=search]:hover {
+            background-color: #fff;
+        }
+        #demo-2 input[type=search]:focus {
+            width: 130px;
+            padding-left: 32px;
+            color: #000;
+            background-color: #e6e6e6;
+            cursor: auto;
+        }
+        #demo-2 input:-moz-placeholder {
+            color: transparent;
+        }
+        #demo-2 input::-webkit-input-placeholder {
+            color: transparent;
+        }
+    </style>
 </head>

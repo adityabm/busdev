@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Dashboard KitaBisnis</title>
     <link rel="shortcut icon" href="{{asset('assets/img/logos/favicon.png')}}" />
     <meta name="csrf-token" content="{{csrf_token()}}">
 

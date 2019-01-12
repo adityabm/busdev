@@ -39,7 +39,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <h3>About Us</h3>
                     <div class="mt-25"> <img src="{{asset('assets/img/logos/kitabisnis.png')}}" alt="footer-logo">
-                        <p class="mt-25">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <p class="mt-25"></p>
                         <div class="footer-social-icons mt-25">
                             <ul>
                                 <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>

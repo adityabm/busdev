@@ -8,7 +8,7 @@
                 <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2">
                     <div class="center-holder">
                         <h2> KITABISNIS </h2>
-                        <h4 style="color:white"> Bisnis Kita, KitaBisnis </h4>
+                        <h4 style="color:white"> KitaBisnis akan memudahkan Anda untuk membuat bisnis sendiri. </h4>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
 <div class="section-block-grey">
     <div class="container">
         <div class="section-heading center-holder">
-            <h3>Doing the right thing at the right time</h3>
+            <h3>Bisnis Kita, Ya KitaBisnis !</h3>
             <div class="section-heading-line"></div>
         </div>
         <div class="row mt-60">
@@ -29,7 +29,6 @@
                         <h4>Planning</h4>
                         <h5>Business Planning</h5> </div>
                     <div class="section-heading-line-left"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
@@ -39,7 +38,6 @@
                         <h4>Management</h4>
                         <h5>Retirement Planning</h5> </div>
                     <div class="section-heading-line-left"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
@@ -49,7 +47,6 @@
                         <h4>Accumulation</h4>
                         <h5>Support and Sell</h5> </div>
                     <div class="section-heading-line-left"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                 </div>
             </div>
         </div>
@@ -69,7 +66,7 @@
                         <div class="row" style="padding-bottom:10px">
                             <div class="col-md-7 col-sm-7 col-xs-7 pr-0" style="overflow: hidden;text-overflow: ellipsis;color:#5f5f5f">
                                 <h4><a href="{{url('project',$p->slug)}}">{{$p->project_name}}</a></h4>
-                                <span style="color:#5f5f5f;white-space: nowrap;">{{$p->description}}asdasd asdasdasdas</span>
+                                <span style="color:#5f5f5f;white-space: nowrap;">{{$p->description}}</span>
                             </div>
                             <div class="col-md-5 col-sm-5 col-xs-5 pl-0">
                                 <h5 style="font-size: 1em">{{rupiah($p->target)}}</h5> </div>

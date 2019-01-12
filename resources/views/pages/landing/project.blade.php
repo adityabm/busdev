@@ -165,7 +165,7 @@
 		var val = parseFloat($('#investment').val().replace('Rp ','').replace(/,/g,''));
 
 		if($('#investment').val() == 0 || $('#investment').val() == '' || $('#investment').val() == 'NaN'){
-			$.alert('Yang bener aja nge invest 0');
+			$.alert('Nilai Investasi terlalu kecil.');
 			return;
 		}
 

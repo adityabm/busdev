@@ -69,5 +69,12 @@
 		
 		return rupiah;
 	}
+
+	$('#demo-2').submit(function( event ) {
+	  event.preventDefault();
+	  var val = $('#search-engine').val();
+
+	  window.location.href = "{{url('project/search')}}?search=" + val;
+	});
 </script>
 @yield('scripts')

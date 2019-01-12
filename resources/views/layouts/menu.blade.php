@@ -22,3 +22,9 @@
   </ul>
 </li>
 @endif
+
+<li>
+  <form id="demo-2">
+    <input type="search" placeholder="Search" name="search" onkeypress="return runScript(event)" id="search-engine">
+  </form>
+</li>
